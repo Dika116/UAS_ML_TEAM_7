@@ -7,11 +7,17 @@ from tqdm import tqdm
 import os
 
 #----------LOAD DATA------------#
-train_features = np.load("UAS_ML_TEAM_7/features/train_paths.npy", allow_pickle=True)
+train_features = np.load("UAS_ML_TEAM_7/features/train_features.npy", allow_pickle=True)
+print("Train Feature loaded")
 train_labels   = np.load("UAS_ML_TEAM_7/features/train_labels.npy", allow_pickle=True)
-test_features  = np.load("UAS_ML_TEAM_7/features/test_paths.npy",  allow_pickle=True)
+print("Train Label loaded")
+test_features  = np.load("UAS_ML_TEAM_7/features/test_features.npy",  allow_pickle=True)
+print("Test Feature loaded")
 test_labels    = np.load("UAS_ML_TEAM_7/features/test_labels.npy",  allow_pickle=True)
+print("Test label loaded")
 class_names    = np.load("UAS_ML_TEAM_7/features/class_names.npy",  allow_pickle=True)
+print("Class names loaded")
+
 
 train_features = train_features.reshape(train_features.shape[0], -1)
 test_features  = test_features.reshape(test_features.shape[0], -1)
@@ -80,6 +86,6 @@ plt.title("Confusion Matrix - XGBoost")
 plt.ylabel("True Label")
 plt.xlabel("Predicted Label")
 plt.tight_layout()
-plt.savefig("features/confusion_matrix_xgboost.png", dpi=150)
+plt.savefig("UAS_ML_TEAM_7/features/confusion_matrix_xgboost.png", dpi=150)
 plt.show()
 print("Confusion matrix saved to features/confusion_matrix_xgboost.png")
